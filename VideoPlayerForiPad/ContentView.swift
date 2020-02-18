@@ -7,10 +7,26 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct ContentView: View {
+    @State private var trigger = false
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Spacer()
+            Button(action: {
+                self.trigger.toggle()
+            }) {
+                Text("Play")
+            }
+            Spacer()
+            if trigger {
+                MovieView()
+                    .padding()
+            }
+            Spacer()
+        }
     }
 }
 
